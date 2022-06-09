@@ -8,10 +8,12 @@ function computerPlay() {
     } else {
         result = "scissors";
     }
-    return (result);
+    return result;
 }
 
 const userSelect = prompt("Rock, paper or scissors?");
+
+let result = computerPlay();
 
 function singleRound(human, computer) {
     humanChoice = human.toLowerCase();
@@ -27,8 +29,22 @@ function singleRound(human, computer) {
         console.log("You win! Rock beats paper.");
     } else if (humanChoice === "scissors" && computer === "rock") {
         console.log("You lose! Rock beats paper.");
-    } 
+    } else if (humanChoice === 'rock' && computer === 'rock'){
+        console.log(`It's a draw! Rock and rock.`);
+    } else if (humanChoice === 'paper' && computer === 'paper'){
+        console.log(`It's a draw! Paper and paper.`);
+    } else if (humanChoice === 'scissors' && computer === 'scissors'){
+        console.log(`It's a draw! Scissors and scissors.`);
+    } else {
+        console.log(`Check your input! This time it was ${humanChoice}.`);
+    }
 
 }
 
-singleRound(userSelect, computerPlay);
+function game() {
+    for (let i = 0; i < 5; i++) {
+        singleRound(userSelect, result);
+    }
+}
+
+game();
