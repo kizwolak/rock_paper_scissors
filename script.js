@@ -37,12 +37,12 @@ function singleRound() {
         results.appendChild(document.createElement("br"));
         humanResults.textContent = 'Human: ' + ++humanSum;
     } else if (humanChoice === "rock" && computer === "scissors") {
-        let winrp = document.createTextNode("You win! Rock beats paper.");
+        let winrp = document.createTextNode("You win! Rock beats scissors.");
         results.appendChild(winrp);
         results.appendChild(document.createElement("br"));
         humanResults.textContent = 'Human: ' + ++humanSum;
     } else if (humanChoice === "scissors" && computer === "rock") {
-        let lossrp = document.createTextNode("You lose! Rock beats paper.");
+        let lossrp = document.createTextNode("You lose! Rock beats scissors.");
         results.appendChild(lossrp);
         results.appendChild(document.createElement("br"));
         computerResults.textContent = 'Computer: ' + ++computerSum;
