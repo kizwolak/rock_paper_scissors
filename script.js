@@ -58,8 +58,6 @@ function singleRound() {
         let drawss = document.createTextNode(`It's a draw! Scissors and scissors.`);
         results.appendChild(drawss);
         results.appendChild(document.createElement("br"));
-    } else {
-        console.log(`Check your input! This time it was ${humanChoice}.`);
     }
 
     if (humanSum === 5) {
@@ -67,13 +65,34 @@ function singleRound() {
         btn1.disabled = true; 
         btn2.disabled = true; 
         btn3.disabled = true; 
+        let btn4 = document.createElement("button");
+        finalResult.appendChild(btn4);
+        btn4.addEventListener("click", zeroScores);
+        btn4.textContent = "Reset";
     }
     if (computerSum === 5) {
         finalResult.textContent = "Computer wins!";
         btn1.disabled = true; 
         btn2.disabled = true; 
-        btn3.disabled = true;  
+        btn3.disabled = true; 
+        let btn4 = document.createElement("button");
+        finalResult.appendChild(btn4);
+        btn4.addEventListener("click", zeroScores);
+        btn4.textContent = "Reset";
     }
+
+    function zeroScores() {
+        btn1.disabled = false; 
+        btn2.disabled = false; 
+        btn3.disabled = false;
+        humanSum = 0;
+        computerSum = 0;
+        humanResults.textContent = 'Human: ' + humanSum;
+        computerResults.textContent = 'Computer: ' + computerSum;
+        results.textContent = '';
+        finalResult.textContent = '';
+    }
+
 }
 
 let btn1 = document.querySelector("#btn1");
@@ -102,4 +121,7 @@ computerResults.textContent = 'Computer: ' + computerSum;
 
 const finalResult = document.createElement("div");
 document.body.appendChild(finalResult);
+
+
+
 
